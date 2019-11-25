@@ -65,6 +65,8 @@ AC_CHECK_FUNCS([bzero getpagesize gettimeofday memmove memset munmap select sock
 
 # Reset DPDK to 0
 AC_SUBST(DPDK, 0)
+# Reset SPDK to 0
+AC_SUBST(SPDK, 0)
 # Reset enforcement value
 AC_SUBST(ENFORCE_RX_IDLE, 0)
 AC_SUBST(RX_IDLE_THRESH, 0)
@@ -113,6 +115,14 @@ AC_ARG_ENABLE([ccp],
 if test "x$enable_ccp" = "xyes"
 then
 	AC_SUBST(CCP, 1)
+fi
+
+AC_ARG_ENABLE([spdk],
+        AS_HELP_STRING([--enable-spdk], [Enable spdk module]))
+
+if test "x$enable_spdk" = "xyes"
+then
+        AC_SUBST(SPDK, 1)
 fi
 
 dnl Example of default-enabled feature
